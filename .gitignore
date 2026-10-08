@@ -1,0 +1,14 @@
+.gradle/
+**/build/
+**/local.properties
+**/node_modules/
+**/__pycache__/
+*.pyc
+*.pyo
+*.jks
+*.keystore
+**/test-output/
+analysis/
+config.json
+config_sfa.json
+RuleProviders.zip

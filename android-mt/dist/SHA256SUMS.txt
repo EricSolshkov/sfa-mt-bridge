@@ -1,0 +1,1 @@
+4d0a2865d813bb2743661bfcbd7952646d1db922b2d7ecfebfba4d88180f252e  MT-Bridge-0.1.2-arm64-test.apk

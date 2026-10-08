@@ -1,0 +1,23 @@
+{
+  "schema": {
+    "source": "https://github.com/SagerNet/sing-box/blob/v1.14.0/docs/schema.json",
+    "sha256": "15133dc518142b7082f120fa7ed08dabb5b28768850e4bebcde67272cbd58d47"
+  },
+  "python_packages": [
+    {
+      "archive": "attrs-25.3.0-py3-none-any.whl",
+      "sha256": "427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3",
+      "source": "PyPI via pip download"
+    },
+    {
+      "archive": "jsonschema-4.17.3-py3-none-any.whl",
+      "sha256": "a870ad254da1a8ca84b6a2905cac29d265f805acc57af304784962a2aa6508f6",
+      "source": "PyPI via pip download"
+    },
+    {
+      "archive": "pyrsistent-0.20.0.tar.gz",
+      "sha256": "4c48f78f62ab596c679086084d0dd13254ae4f3d6c72a83ffdf5ebdef8f265a4",
+      "source": "PyPI via pip download"
+    }
+  ]
+}

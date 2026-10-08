@@ -1,0 +1,7 @@
+{
+  "name": "mtbridge-protocol-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {"test:qrs": "node tests/verify-qrs.mjs"},
+  "devDependencies": {"luby-transform": "0.2.0"}
+}

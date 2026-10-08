@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'local.mtbridge'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'local.mtbridge'
+        minSdk 26
+        targetSdk 35
+        versionCode 3
+        versionName '0.1.2'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildTypes { release { minifyEnabled false } }
+    flavorDimensions 'device'
+    productFlavors {
+        phone { dimension 'device'; ndk { abiFilters 'arm64-v8a' } }
+        emulator { dimension 'device'; ndk { abiFilters 'x86_64' } }
+    }
+}
+
+// Package the existing, tested exporter directly. Never copy user configs or snapshots.
+tasks.register('stageExporter', Sync) {
+    from('../../mt-export') {
+        include 'update_mt.py', 'sing-box-1.14.schema.json', 'vendor/**', 'UPSTREAM-LICENSE', 'DEPENDENCIES.json'
+        exclude '**/__pycache__/**', '**/*.pyc', '**/*.pyo'
+    }
+    into layout.buildDirectory.dir('exporterPython')
+}
+chaquopy {
+    defaultConfig {
+        version = '3.13'
+        extractPackages '*'
+        pyc { src = false }
+    }
+    sourceSets { main { srcDir layout.buildDirectory.dir('exporterPython') } }
+}
+tasks.configureEach {
+    if (name.toLowerCase().contains('python') && name != 'stageExporter') dependsOn 'stageExporter'
+}
+dependencies {
+    implementation 'com.google.zxing:core:3.5.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+}

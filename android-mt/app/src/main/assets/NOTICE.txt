@@ -1,0 +1,26 @@
+MT 配置桥 0.1.2
+
+转换逻辑：workspace 中的 mt-export/update_mt.py。
+目标校验：sing-box upstream v1.14.0 JSON Schema（GPL-3.0）。
+本应用不包含或运行 sing-box 代理核心。
+
+Python 3.13（PSF License）由 Chaquopy 17.0.0（MIT）嵌入。
+用户无需安装 Python、Termux 或任何脚本环境。
+
+JSON Schema 校验：jsonschema 4.17.3、attrs 25.3.0、pyrsistent 0.20.0，均为 MIT。
+二维码图像：ZXing core 3.5.3，Apache-2.0。
+QRS 协议：qifi-dev/qrs，MIT；使用本地实现的循环单片 LT 帧。
+配置封装：参考 SagerNet/sing-box 与 sing-box-for-apple 的公开格式（GPL-3.0）。
+
+完整许可证位于 APK assets/licenses，工程中保留源码与依赖清单。
+https://github.com/SagerNet/sing-box
+https://github.com/SagerNet/sing-box-for-apple
+https://github.com/qifi-dev/qrs
+https://github.com/chaquo/chaquopy
+https://github.com/zxing/zxing
+
+下载仅访问用户配置中的订阅源。配置不会上传到转换服务或二维码网站。
+QRS 帧里的 qrss.netlify.app 字样是协议前缀，本应用不会打开该网址。
+Root 仅执行有大小/时间限制的源文件读取，不修改 SFA 文件，不启动或停止 VPN。
+
+这是首版测试工具。Schema 校验不能代替 iPhone 上的实际核心、网络和路由验证。
